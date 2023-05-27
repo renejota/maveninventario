@@ -1,21 +1,17 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
+pipeline{
+    agent any 
+      stages{
+        stage('checkout') {
             steps {
-                echo 'Construyendo la aplicacion'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Ejecutar los tests '
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Desplegando el area de desarrollo'
-            }
-        }
-    } 
-}
+               checkout([
+                   $class: 'GitSCM', 
+                   branches: [[name: '*/main']], 
+                   doGenerateSubmoduleConfigurations: false, 
+                   extensions: [[$class: 'CleanCheckout']], 
+                   submoduleCfg: [], 
+                   userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:renejota/maveninventario.git']]
+            ])
+                  }
+           }
+     }
+}     
