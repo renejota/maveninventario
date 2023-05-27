@@ -9,7 +9,7 @@ pipeline{
                    doGenerateSubmoduleConfigurations: false, 
                    extensions: [[$class: 'CleanCheckout']], 
                    submoduleCfg: [], 
-                   userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:renejota/maveninventario.git']]
+                   userRemoteConfigs: [[credentialsId: 'sshconexiongithub', url: 'git@github.com:renejota/maveninventario.git']]
             ])
                   }
            }
