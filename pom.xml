@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Actividad4</name>
   <description>Actividad Modulo2 Clase4</description>
-
+   <!--
     <dependencies>
 	  <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
@@ -22,7 +22,7 @@
 		  <plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
 			  <artifactId>maven-compiler-plugin</artifactId>
-			  <version>3.9.2</version>
+			  <version>3.8.0</version>
 			  <configuration>
 				  <source>17</source>
 				  <tarjet>17</tarjet>
@@ -51,7 +51,7 @@
 	      
 	      <!-- Ciclo de vida de despliegue -->
 	      <!-- Necesitas configurar el plugin maven-deploy-plugin con los detalles de tu repositorio si quieres desplegar el proyecto -->
-	      <!--27.05.2023
+	       
 	      <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-deploy-plugin</artifactId>
@@ -61,7 +61,7 @@
 	          <url>http://myrepo.com</url>
 	        </configuration>
 	      </plugin>
-	      -->
+	       
 	  </plugins>
   </build>
 </project>
