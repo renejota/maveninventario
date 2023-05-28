@@ -1,8 +1,8 @@
 pipeline{
     agent any 
-    tools {
+    tools { 
         maven "jenkinsmaven"
-    }           
+        }
       stages{
         stage('checkout') {
             steps {
@@ -16,5 +16,19 @@ pipeline{
             ])
                   }
            }
+        stage('Build') {
+            steps {
+                sh 'mvn -version'
+                sh 'mvn clean install'
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }   
+     }
+     
+     post {
+        always {
+            cleanWs()
+        } 
+         
      }
 }     
