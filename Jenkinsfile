@@ -4,18 +4,11 @@ pipeline{
         maven "jenkinsmaven"
         }
       stages{
-        stage('checkout') {
+        stage('Checkout') {
             steps {
-               checkout([
-                   $class: 'GitSCM', 
-                   branches: [[name: '*/main']], 
-                   doGenerateSubmoduleConfigurations: false, 
-                   extensions: [[$class: 'CleanCheckout']], 
-                   submoduleCfg: [], 
-                   userRemoteConfigs: [[credentialsId: 'sshconexiongithub', url: 'git@github.com:renejota/maveninventario.git']]
-            ])
-                  }
-           }
+                git branch: 'main', url: 'https://github.com/renejota/maveninventario.git'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -version'
