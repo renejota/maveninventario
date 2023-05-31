@@ -23,12 +23,21 @@ pipeline{
                 sh 'mvn -B -DskipTests clean package'
             }
         }   
+         stage('archiveArtifacts') {
+            steps {
+                sh 'mkdir jar'
+                sh 'echo "not a artifact file" > jar/build.jar'
+                sh 'echo "artifact file" > jar/build.min.jar'
+            }
+        }
+          stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            
+        }
+        
      }
      
      post {
-        always {
-            cleanWs()
-        } 
-         
-     }
 }     
